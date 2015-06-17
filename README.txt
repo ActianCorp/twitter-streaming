@@ -16,6 +16,7 @@ To begin generating data:
 2. Then test by open terminal then cd into the directory with the python script and run:
 
 
+
 ### Replace the generic paths with the path in your configuration. 
 
 
@@ -33,3 +34,17 @@ that will begin to stream data events into a kafka producer.
 
 
 
+###########################################
+*** Note ***
+this procedure assumes a topic named twitterstream exists in kafka to produce the data to.
+if you need to create a topic use the following code :
+
+>> bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic twitterstream
+
+check what topics you have with:
+>> bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+to check if data is in fact landing in kafka:
+>> bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic twitterstream --from-beginning 
+
+###########################################
