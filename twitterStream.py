@@ -24,7 +24,10 @@ class StdOutListener(tweepy.StreamListener):
     def on_status(self, status):
 
         # Prints the text of the tweet
-        print '%d,%d,%d,%s,%s' % (status.user.followers_count, status.user.friends_count,status.user.statuses_count, status.user.id_str, status.user.screen_name)
+        #print '%d,%d,%d,%s,%s' % (status.user.followers_count, status.user.friends_count,status.user.statuses_count, status.user.id_str, status.user.screen_name)
+        
+        # Schema changed to add the tweet text
+        print '%d,%d,%d,%s,%s' % (status.user.followers_count, status.user.friends_count,status.user.statuses_count, status.text, status.user.screen_name)
 
         return True
        
