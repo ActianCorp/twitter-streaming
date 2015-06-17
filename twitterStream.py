@@ -10,6 +10,7 @@ import tweepy
 ######################################################################
 # Authentication details. To  obtain these visit dev.twitter.com
 ######################################################################
+
 consumer_key = ''#example : eWkgf0izE2qtN8Ftk5yrVpaaI
 consumer_secret = ''#example : BYYnkSEDx463mGzIxjSifxfXN6V1ggpfJaGBKlhRpUMuQ02lBX
 access_token = ''#example : 1355650081-Mq5jok7mbcrIbTpqZPcMHgWjcymqSrG1kVaut39
@@ -61,11 +62,14 @@ if __name__ == '__main__':
     
     listener = StdOutListener()
 
+    #sign oath cert
+
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 
     auth.set_access_token(access_token, access_token_secret)
 
-    api = tweepy.API(auth)
+    #uncomment to use api in stream for data send/retrieve algorythms 
+    #api = tweepy.API(auth)
 
     stream = tweepy.Stream(auth, listener)
 
