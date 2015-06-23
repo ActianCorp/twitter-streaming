@@ -11,7 +11,7 @@ _  /   __ |/ |/ /_  / / /_ / /_ /  __/  /   ____/ // /_ _  /   /  __/ /_/ /_  / 
 
 To begin generating data:
 
-1. First open twitter_kafka_direct and add in the needed credentials for your twitter dev account.
+1. First open twitter_kafka_direct.py and add in the needed credentials for your twitter dev account.
 	* http://dev.twitter.com
 2. Ensure you have all requirements installed and that python can access the modules (see requirements.txt) . 
 	- if you need for example tweepy and have pip :
