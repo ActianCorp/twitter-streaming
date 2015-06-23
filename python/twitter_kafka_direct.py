@@ -17,12 +17,12 @@ import string
 # Authentication details. To  obtain these visit dev.twitter.com
 ######################################################################
 
-consumer_key = 'aybpmREJAzUkbrF2f0cWg'#eWkgf0izE2qtN8Ftk5yrVpaaI
-consumer_secret = 'OUbjAwEDTSqt4hJHxOETbaNWFr6he6cMT7wqI6ooQ1w'#BYYnkSEDx463mGzIxjSifxfXN6V1ggpfJaGBKlhRpUMuQ02lBX
-access_token = '1355650081-A03VSt3vdGHq6QyVS6lBd6EdsUTLcyQSXQVmS2I'#1355650081-Mq5jok7mbcrIbTpqZPcMHgWjcymqSrG1kVaut39
-access_token_secret = 'UgV99l4TgdC3qv56uSwknkjB7iUfV50qMIYRkPEbrJ7AG'#QovqxQnw0hSPrKwFIYLWct3Zv4MeGMash66IaOoFyXNWs
+consumer_key = 'your-key-values'#eWkgf0izE2qtN8Ftk5yrVpaaI
+consumer_secret = 'your-key-values'#BYYnkSEDx463mGzIxjSifxfXN6V1ggpfJaGBKlhRpUMuQ02lBX
+access_token = 'your-key-values'#1355650081-Mq5jok7mbcrIbTpqZPcMHgWjcymqSrG1kVaut39
+access_token_secret = 'your-key-values'#QovqxQnw0hSPrKwFIYLWct3Zv4MeGMash66IaOoFyXNWs
 
-mytopic='dna'
+mytopic='topic'# ex. 'twitterstream', or 'test' ...
 
 ######################################################################
 #Create a handler for the streaming data that stays open...
@@ -44,7 +44,7 @@ class StdOutListener(tweepy.StreamListener):
         
         # Schema changed to add the tweet text
         print '%d,%d,%d,%s,%s' % (status.user.followers_count, status.user.friends_count,status.user.statuses_count, status.text, status.user.screen_name)
-        message =  status.text + ',' + status.user.screen_name
+        message =  str(status.user.followers_count) + ',' + str(status.user.friends_count) + ',' + str(status.user.statuses_count) + ',' + status.text + ',' + status.user.screen_name
         msg = filter(lambda x: x in string.printable, message)
         try:
             producer.send_messages(mytopic, str(msg))
