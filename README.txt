@@ -11,24 +11,33 @@ _  /   __ |/ |/ /_  / / /_ / /_ /  __/  /   ____/ // /_ _  /   /  __/ /_/ /_  / 
 
 To begin generating data:
 
-1. First open twitterStream.py and add in the needed credentials for your twitter dev account.
+1. First open twitter_kafka_direct and add in the needed credentials for your twitter dev account.
 	* http://dev.twitter.com
-2. Ensure you have tweepy installed and that python can access the module. 
-	- if you need tweepy and have pip :
+2. Ensure you have all requirements installed and that python can access the modules (see requirements.txt) . 
+	- if you need for example tweepy and have pip :
 		>> pip install tweepy
 	- if you don't have pip download get_pip.py (latest from the google webs :) and run:
 		>> python get_pip.py 
 		>> pip install tweepy
 	- if you like you can also track tweepy down and install it manually but I don't see why when pip is so awesome. 
 
+
 3. Then test by opening a terminal window then cd into the directory with the python script and run:
 
 ### Replace the generic paths with the path in your configuration. 
-		>> python /path/to/twitterstreaming.py
+		>> python /path/to/twitter_kafka_direct.py
 
-4. to deliver the stream to kafka run:
+4. to deliver the stream to csv:
+	- replace stubs with values for your tokens in twitterStream.py 
 
-		>> python /path/to/twitterStream.py > pipe | path/to/bin/kafka-console-producer.sh --broker-list localhost:9092 		--topic twitterstream < pipe
+		>> python /path/to/twitterStream.py > twitterData.csv
+
+5. to write data to kafka:
+	- Use twitter_kafka_direct.py. Replace token stubs with your values and state your topic mytopic
+	  default is 'topic'
+
+	 	>> python /path/to/twitter_kafka_direct.py
+
 
 that will begin to stream data events into a kafka producer.
 

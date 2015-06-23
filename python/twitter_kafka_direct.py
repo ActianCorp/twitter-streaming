@@ -47,6 +47,7 @@ class StdOutListener(tweepy.StreamListener):
         message =  str(status.user.followers_count) + ',' + str(status.user.friends_count) + ',' + str(status.user.statuses_count) + ',' + status.text + ',' + status.user.screen_name
         msg = filter(lambda x: x in string.printable, message)
         try:
+            #write out to kafka topic
             producer.send_messages(mytopic, str(msg))
         except Exception, e:
             return True
@@ -89,14 +90,12 @@ if __name__ == '__main__':
     stream = tweepy.Stream(auth, listener)
 
     ######################################################################
-    #Sample dilivers a stream of 1% (random selection) of all tweets
+    #Sample delivers a stream of 1% (random selection) of all tweets
     ######################################################################
+    stream.sample()
     client = KafkaClient("localhost:9092")
     producer = SimpleProducer(client)
 
-
-    
-    stream.sample()
     ######################################################################
     #Custom Filter rules pull all traffic for those filters in real time.
     #Bellow are some examples add or remove as needed...
