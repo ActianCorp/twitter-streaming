@@ -1,0 +1,10 @@
+This product includes software developed by Actian Corporation (http://www.actian.com/).
+
+In addition, this product includes the following software:
+
+Tweepy (https://github.com/tweepy/tweepy.git) which is a twitter streaming engine for extracting data from live twitter stream
+objects known as statuses. It uses the MIT License (http://opensource.org/licenses/MIT).
+
+kafka-python (https://github.com/mumrah/kafka-python.git) which is a kafka interface for writing directly to a kafka topic from a python application.
+It uses the It uses the Apache 2.0 License (http://www.apache.org/licenses/LICENSE-2.0)
+
