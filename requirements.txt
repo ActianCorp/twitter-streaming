@@ -1,7 +1,4 @@
 #Requirements
 
-threading
-logging
-time
 kafka
 tweepy
